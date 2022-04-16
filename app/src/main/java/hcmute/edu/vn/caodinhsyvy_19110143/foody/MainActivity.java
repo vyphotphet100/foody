@@ -3,10 +3,13 @@ package hcmute.edu.vn.caodinhsyvy_19110143.foody;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RelativeLayout placeHolder = findViewById(R.id.mainLayout);
-        homeActivityView = View.inflate(this, R.layout.activity_home, null);
+        homeActivityView = (new HomeActivity(MainActivity.this)).getMainView();
         ordersActivityView = View.inflate(this, R.layout.activity_orders, null);
         accountActivityView = View.inflate(this, R.layout.activity_account, null);
 
@@ -36,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.action_home) {
                     placeHolder.addView(homeActivityView);
+                    HomeActivity homeActivityClass = new HomeActivity(MainActivity.this);
+//                    OnCreateHome();
+//                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+//                    startActivity(intent);
                 } else if (item.getItemId() == R.id.action_account) {
                     placeHolder.addView(accountActivityView);
                 } else if (item.getItemId() == R.id.action_orders) {
@@ -47,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomNav.setSelectedItemId(R.id.action_home);
+    }
+
+    private void OnCreateHome() {
+        TextView txtView = homeActivityView.findViewById(R.id.textView3);
+        txtView.setText("Edit");
     }
 }
