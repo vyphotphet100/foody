@@ -3,14 +3,11 @@ package hcmute.edu.vn.caodinhsyvy_19110143.foody;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RelativeLayout placeHolder = findViewById(R.id.mainLayout);
-        homeActivityView = (new HomeActivity(MainActivity.this)).getMainView();
+        homeActivityView = (new HomeActivity(MainActivity.this)).getView();
         ordersActivityView = View.inflate(this, R.layout.activity_orders, null);
         accountActivityView = View.inflate(this, R.layout.activity_account, null);
 
@@ -54,10 +51,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomNav.setSelectedItemId(R.id.action_home);
-    }
-
-    private void OnCreateHome() {
-        TextView txtView = homeActivityView.findViewById(R.id.textView3);
-        txtView.setText("Edit");
     }
 }

@@ -1,44 +1,56 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.foody;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.GridView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity{
 
-    private View mainView;
+    private View view;
     private Context context;
 
-    Button btn;
+    GridView gvDishes;
 
     private void onCreate() {
         mapping();
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "Hellooooo", Toast.LENGTH_SHORT).show();
-            }
-        });
+        List<String> dishes = new ArrayList<>();
+        dishes.add("Bun bo Hue");
+        dishes.add("Bun dau");
+        dishes.add("Banh canh");
+        dishes.add("Cha gio");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        dishes.add("Hu tieu");
+        GvDishesAdapter gvDishesAdapter = new GvDishesAdapter(context, dishes);
+
+        gvDishes.setAdapter(gvDishesAdapter);
     }
 
     public HomeActivity(Context context) {
 //        Toast.makeText(context, "Home", Toast.LENGTH_SHORT).show();
         this.context = context;
-        mainView = View.inflate(this.context, R.layout.activity_home, null);
+        view = View.inflate(this.context, R.layout.activity_home, null);
         onCreate();
     }
 
     private void mapping() {
-        btn = mainView.findViewById(R.id.button);
+        gvDishes = view.findViewById(R.id.gvDishes);
     }
 
 
-    public View getMainView(){
-        return this.mainView;
+    public View getView(){
+        return this.view;
     }
 }
