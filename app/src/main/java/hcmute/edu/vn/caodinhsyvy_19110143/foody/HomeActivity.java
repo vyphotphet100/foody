@@ -1,8 +1,11 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.foody;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +36,9 @@ public class HomeActivity{
         dishes.add("Hu tieu");
         dishes.add("Hu tieu");
         dishes.add("Hu tieu");
+        dishes.add("");
+        dishes.add("");
+
         GvDishesAdapter gvDishesAdapter = new GvDishesAdapter(context, dishes);
 
         gvDishes.setAdapter(gvDishesAdapter);
@@ -53,4 +59,5 @@ public class HomeActivity{
     public View getView(){
         return this.view;
     }
+
 }

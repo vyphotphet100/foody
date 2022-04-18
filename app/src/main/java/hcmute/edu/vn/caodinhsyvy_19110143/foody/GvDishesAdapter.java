@@ -42,6 +42,8 @@ public class GvDishesAdapter extends BaseAdapter {
         TextView txtName = view.findViewById(R.id.txtName);
 
         txtName.setText(dishes.get(i));
+        if (dishes.get(i).trim().equals(""))
+            img.setImageResource(0);
 
         return view;
     }

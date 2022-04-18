@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/color_selected_bottom_nav">
+        android:background="@color/color_selected_bottom_nav">
 
         <EditText
             android:id="@+id/edtSearchDishes"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/radius_edit_text"
             android:ems="10"
             android:hint="Search for dishes"
-            android:background="@color/white"
-            android:layout_margin="10dp" />
+            android:paddingLeft="30dp"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/imgSearch"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="@id/edtSearchDishes"
+            app:layout_constraintTop_toTopOf="@id/edtSearchDishes"
+            app:srcCompat="@drawable/icon_search" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <GridView
@@ -27,6 +44,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/searchBar"
-        android:background="@color/color_selected_bottom_nav"
-        android:numColumns="2"/>
+        android:numColumns="2" />
 </RelativeLayout>

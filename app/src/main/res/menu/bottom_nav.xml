@@ -7,8 +7,7 @@
 
     <item
         android:id="@+id/action_home"
-        android:icon="@android:drawable/ic_dialog_email"
-        android:title="@string/action_home"/>
+        android:title="@string/action_nothing"/>
 
     <item
         android:id="@+id/action_account"
