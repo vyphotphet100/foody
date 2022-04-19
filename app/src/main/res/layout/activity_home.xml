@@ -36,6 +36,15 @@
             app:layout_constraintTop_toTopOf="@id/edtSearchDishes"
             app:srcCompat="@drawable/icon_search" />
 
+        <ListView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintRight_toRightOf="@id/edtSearchDishes"
+            app:layout_constraintTop_toTopOf="@id/edtSearchDishes" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
