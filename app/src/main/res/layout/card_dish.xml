@@ -19,6 +19,7 @@
         android:layout_height="30dp"
         android:layout_below="@id/img"
         android:autoSizeTextType="uniform"
+        android:text="TextView"
         android:textAlignment="center"
-        android:text="TextView" />
+        android:textColor="@color/black" />
 </RelativeLayout>

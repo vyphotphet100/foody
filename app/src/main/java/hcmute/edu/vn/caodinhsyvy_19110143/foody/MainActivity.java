@@ -16,9 +16,10 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
 
     View homeActivityView, ordersActivityView, accountActivityView;
-    RelativeLayout placeHolder;
-//    ImageView btnHome;
+    RelativeLayout mainLayout;
+    //    ImageView btnHome;
     HomeActivity homeActivityClass;
+    OrdersActivity ordersActivityClass;
     FloatingActionButton btnHome;
     CurvedBottomNavigationView bottomNav;
 
@@ -27,10 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        placeHolder = findViewById(R.id.mainLayout);
-        homeActivityView = (new HomeActivity(MainActivity.this)).getView();
-        ordersActivityView = View.inflate(this, R.layout.activity_orders, null);
-        accountActivityView = View.inflate(this, R.layout.activity_account, null);
+        mainLayout = findViewById(R.id.mainLayout);
         btnHome = findViewById(R.id.btnHome);
         bottomNav = findViewById(R.id.bottomNav);
 
@@ -44,14 +42,17 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                placeHolder.removeView(homeActivityView);
-                placeHolder.removeView(ordersActivityView);
-                placeHolder.removeView(accountActivityView);
+                if (homeActivityView != null)
+                    mainLayout.removeView(homeActivityView);
+                if (ordersActivityView != null)
+                    mainLayout.removeView(ordersActivityView);
+                if (accountActivityView != null)
+                    mainLayout.removeView(accountActivityView);
 
                 if (item.getItemId() == R.id.action_home) {
                     GoToHome();
                 } else if (item.getItemId() == R.id.action_orders) {
-
+                    GoToOrders();
                 } else if (item.getItemId() == R.id.action_account) {
 
                 }
@@ -60,34 +61,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-//        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                placeHolder.removeView(homeActivityView);
-//                placeHolder.removeView(ordersActivityView);
-//                placeHolder.removeView(accountActivityView);
-//
-//                if (item.getItemId() == R.id.action_home) {
-//                    placeHolder.addView(homeActivityView);
-//                    HomeActivity homeActivityClass = new HomeActivity(MainActivity.this);
-//                } else if (item.getItemId() == R.id.action_account) {
-//                    placeHolder.addView(accountActivityView);
-//                } else if (item.getItemId() == R.id.action_orders) {
-//                    placeHolder.addView(ordersActivityView);
-//                }
-//
-//                return true;
-//            }
-//        });
-
-//        bottomNav.setSelectedItemId(R.id.action_home);
+        bottomNav.setSelectedItemId(R.id.action_home);
     }
 
     private void GoToHome() {
-        placeHolder.addView(homeActivityView);
         if (homeActivityClass == null)
             homeActivityClass = new HomeActivity(MainActivity.this);
+
+        homeActivityView = homeActivityClass.getView();
+        mainLayout.addView(homeActivityView);
+    }
+
+    private void GoToOrders() {
+        if (ordersActivityClass == null)
+            ordersActivityClass = new OrdersActivity(MainActivity.this);
+
+        ordersActivityView = ordersActivityClass.getView();
+        mainLayout.addView(ordersActivityView);
     }
 }
