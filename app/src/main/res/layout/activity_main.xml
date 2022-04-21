@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#EF7F7F">
+    android:background="@drawable/background_home_main_layout">
 
     <RelativeLayout
         android:id="@+id/mainLayout"

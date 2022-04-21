@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class LstViewOrdersAdapter extends BaseAdapter {
+public class GvOrdersAdapter extends BaseAdapter {
     private Context context;
     private List<String> orders;
 
-    public LstViewOrdersAdapter(Context context, List<String> orders) {
+    public GvOrdersAdapter(Context context, List<String> orders) {
         this.context = context;
         this.orders = orders;
     }

@@ -2,8 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.foody;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ public class OrdersActivity {
     private View view;
     private Context context;
 
-    ListView lstViewOrders;
+    GridView gvOrders;
 
     public OrdersActivity(Context context) {
         this.context = context;
@@ -26,7 +25,7 @@ public class OrdersActivity {
     }
 
     private void Mapping() {
-        lstViewOrders = view.findViewById(R.id.lstViewOrders);
+        gvOrders = view.findViewById(R.id.lstViewOrders);
     }
 
     private void onCreate() {
@@ -42,8 +41,8 @@ public class OrdersActivity {
         orders.add("abc");
         orders.add("abc");
 
-        LstViewOrdersAdapter adapter = new LstViewOrdersAdapter(context, orders);
-        lstViewOrders.setAdapter(adapter);
+        GvOrdersAdapter adapter = new GvOrdersAdapter(context, orders);
+        gvOrders.setAdapter(adapter);
     }
 
 

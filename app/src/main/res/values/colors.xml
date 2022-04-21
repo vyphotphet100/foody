@@ -10,4 +10,5 @@
 
     <color name="color_selected_bottom_nav">#ED0B0B</color>
     <color name="color_background_bottom_nav">#EFEFEF</color>
+    <color name="color_background_main_layout">#EF7F7F</color>
 </resources>

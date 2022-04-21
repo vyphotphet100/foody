@@ -8,15 +8,30 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:background="@color/color_selected_bottom_nav">
+
+
+        <ImageView
+            android:id="@+id/imgHorizontalLine"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_2_horizontal_lines" />
 
         <EditText
             android:id="@+id/edtSearchDishes"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/radius_edit_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_white_radius_border"
             android:ems="10"
             android:hint="Search for dishes"
             android:lines="1"
@@ -24,9 +39,8 @@
             android:paddingLeft="30dp"
             android:singleLine="true"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imgHorizontalLine"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -53,11 +67,32 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchBar">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_home_banner"
+            android:scaleType="fitXY"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <GridView
         android:id="@+id/gvDishes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchBar"
+        android:layout_below="@id/banner"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:numColumns="2" />
 </RelativeLayout>

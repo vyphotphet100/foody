@@ -4,33 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/homeOrders"
-    android:background="@color/color_selected_bottom_nav">
+    android:id="@+id/homeOrders">
 
-    <TextView
-        android:id="@+id/txtTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Orders"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:textStyle="bold"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/color_selected_bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/lstViewOrders"/>
+        app:layout_constraintBottom_toTopOf="@id/lstViewOrders">
 
-    <ListView
+        <ImageView
+            android:id="@+id/imgHorizontalLine"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_2_horizontal_lines"
+            android:alpha="0.6"/>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Orders"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="7dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridView
         android:id="@+id/lstViewOrders"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="650dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtTitle"/>
+        app:layout_constraintTop_toBottomOf="@id/titleLayout"
+        android:numColumns="1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
